@@ -32,9 +32,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Fooduser.findByUsrfirstname", query = "SELECT f FROM Fooduser f WHERE f.usrfirstname = :usrfirstname"),
     @NamedQuery(name = "Fooduser.findByUsrlastname", query = "SELECT f FROM Fooduser f WHERE f.usrlastname = :usrlastname"),
     @NamedQuery(name = "Fooduser.findByUsrpassword", query = "SELECT f FROM Fooduser f WHERE f.usrpassword = :usrpassword"),
+    @NamedQuery(name = "Fooduser.login", query = "SELECT f FROM Fooduser f WHERE f.usremail = :usremail and f.usrpassword = :usrpassword"),
     @NamedQuery(name = "Fooduser.findByUsraddress", query = "SELECT f FROM Fooduser f WHERE f.usraddress = :usraddress"),
     @NamedQuery(name = "Fooduser.findByUsremail", query = "SELECT f FROM Fooduser f WHERE f.usremail = :usremail"),
     @NamedQuery(name = "Fooduser.findByUsrtel", query = "SELECT f FROM Fooduser f WHERE f.usrtel = :usrtel")})
+
 public class Fooduser implements Serializable {
 
     private static final long serialVersionUID = 1L;

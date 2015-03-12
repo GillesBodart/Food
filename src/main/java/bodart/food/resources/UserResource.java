@@ -1,5 +1,6 @@
 package bodart.food.resources;
 
+import bodart.food.db.controller.LoginCtrl;
 import com.sun.jersey.multipart.FormDataBodyPart;
 import com.sun.jersey.multipart.FormDataParam;
 import java.util.List;
@@ -17,16 +18,17 @@ public class UserResource {
 
     private final String SERVER_DOWNLOAD_LOCATION_FOLDER = "D:\\tmp\\";
     private final String sep = System.getProperty("file.separator");
+    private final LoginCtrl logCtrl;
 
     public UserResource() {
-
+        logCtrl = LoginCtrl.getInstance();
     }
 
     @GET
-    @Path("/{email}/login")
+    @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(
-            @PathParam("email") String uniqueID) {
+            @FormDataParam("email") String uniqueID,@FormDataParam("email") String uniqueID) {
         String token = "token";
         String message = "Loged in";
         return Response
