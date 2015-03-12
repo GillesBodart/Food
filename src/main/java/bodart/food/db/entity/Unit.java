@@ -1,5 +1,3 @@
-
-
 package bodart.food.db.entity;
 
 import java.io.Serializable;
@@ -37,13 +35,14 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Unit.findByUnitname", query = "SELECT u FROM Unit u WHERE u.unitname = :unitname"),
     @NamedQuery(name = "Unit.findByUnitreport", query = "SELECT u FROM Unit u WHERE u.unitreport = :unitreport")})
 public class Unit implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "unitid")
-                @GeneratedValue(strategy = GenerationType.TABLE, generator="Unit")
-    @TableGenerator(name="Unit", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "Unit")
+    @TableGenerator(name = "Unit", allocationSize = 1)
     private Long unitid;
     @Basic(optional = false)
     @NotNull

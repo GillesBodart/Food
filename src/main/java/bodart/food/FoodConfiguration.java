@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.*;
 
 public class FoodConfiguration extends Configuration {
-   @NotEmpty
+
+    @NotEmpty
     private String template;
 
     @NotEmpty

@@ -30,7 +30,7 @@ public class FoodApplication extends Application<FoodConfiguration> {
             final Environment environment) {
         configureCors(environment);
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck(
-				configuration.getTemplate());
+                configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
     }
 

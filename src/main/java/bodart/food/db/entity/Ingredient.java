@@ -1,5 +1,3 @@
-
-
 package bodart.food.db.entity;
 
 import java.io.Serializable;
@@ -30,13 +28,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Ingredient.findByIngid", query = "SELECT i FROM Ingredient i WHERE i.ingid = :ingid"),
     @NamedQuery(name = "Ingredient.findByIngqty", query = "SELECT i FROM Ingredient i WHERE i.ingqty = :ingqty")})
 public class Ingredient implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ingid")
-    @GeneratedValue(strategy = GenerationType.TABLE, generator="Ingredient")
-    @TableGenerator(name="Ingredient", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "Ingredient")
+    @TableGenerator(name = "Ingredient", allocationSize = 1)
     private Long ingid;
     @Basic(optional = false)
     @NotNull

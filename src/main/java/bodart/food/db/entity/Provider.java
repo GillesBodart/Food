@@ -1,5 +1,3 @@
-
-
 package bodart.food.db.entity;
 
 import java.io.Serializable;
@@ -33,13 +31,14 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Provider.findByProname", query = "SELECT p FROM Provider p WHERE p.proname = :proname"),
     @NamedQuery(name = "Provider.findByProaddress", query = "SELECT p FROM Provider p WHERE p.proaddress = :proaddress")})
 public class Provider implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "proid")
-    @GeneratedValue(strategy = GenerationType.TABLE, generator="Provider")
-    @TableGenerator(name="Provider", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "Provider")
+    @TableGenerator(name = "Provider", allocationSize = 1)
     private Long proid;
     @Basic(optional = false)
     @NotNull

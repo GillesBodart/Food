@@ -39,14 +39,12 @@ public class UserResource {
     @Path("/create")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response create(@FormDataParam("firstName") String fName,
-                            @FormDataParam("lastName") String lName,
-                            @FormDataParam("email") String email,
-                            @FormDataParam("tel") String tel,
-                            @FormDataParam("password") String pass,
-                            @FormDataParam("adresse") String address) {
-        
-        
-        
+            @FormDataParam("lastName") String lName,
+            @FormDataParam("email") String email,
+            @FormDataParam("tel") String tel,
+            @FormDataParam("password") String pass,
+            @FormDataParam("adresse") String address) {
+
         return Response
                 .ok(message)
                 .header("Food-token", token)

@@ -1,5 +1,3 @@
-
-
 package bodart.food.db.entity;
 
 import java.io.Serializable;
@@ -26,6 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Sequences.findBySeqName", query = "SELECT s FROM Sequences s WHERE s.seqName = :seqName"),
     @NamedQuery(name = "Sequences.findBySeqCount", query = "SELECT s FROM Sequences s WHERE s.seqCount = :seqCount")})
 public class Sequences implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)

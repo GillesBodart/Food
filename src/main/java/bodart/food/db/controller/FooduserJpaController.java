@@ -1,10 +1,8 @@
-
-
 package bodart.food.db.controller;
 
-import bodart.food.db.controller.exceptions.IllegalOrphanException;
-import bodart.food.db.controller.exceptions.NonexistentEntityException;
-import bodart.food.db.controller.exceptions.PreexistingEntityException;
+import bodart.food.db.exceptions.IllegalOrphanException;
+import bodart.food.db.exceptions.NonexistentEntityException;
+import bodart.food.db.exceptions.PreexistingEntityException;
 import bodart.food.db.entity.Fooduser;
 import java.io.Serializable;
 import javax.persistence.Query;
