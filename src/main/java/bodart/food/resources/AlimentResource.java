@@ -17,20 +17,20 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/user")
-public class UserResource {
+@Path("/aliment")
+public class AlimentResource {
 
     private final String sep = System.getProperty("file.separator");
     private final LoginCtrl logCtrl;
 
-    public UserResource() {
+    public AlimentResource() {
         logCtrl = LoginCtrl.getInstance();
     }
 
-    @GET
-    @Path("/login")
+    @POST
+    @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(
+    public Response add(
             @FormDataParam("email") String mail,@FormDataParam("password") String password) {
         try {
             String token = logCtrl.logIn(mail, password);
@@ -40,15 +40,15 @@ public class UserResource {
                     .header("Food-token", token)
                     .build();
         } catch (FoodMajorException | UnsupportedEncodingException | NoSuchAlgorithmException ex) {
-            Logger.getLogger(UserResource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AlimentResource.class.getName()).log(Level.SEVERE, null, ex);
             return Response.serverError().build();
         }
     }
     
-    @GET
-    @Path("/logout")
+    @POST
+    @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response logout(
+    public Response update(
             @HeaderParam("Food-token") String token) {
         try {
             logCtrl.logOut(token);
@@ -57,31 +57,27 @@ public class UserResource {
                     .ok(message)
                     .build();
         } catch (FoodMinorException ex) {
-            Logger.getLogger(UserResource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AlimentResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.serverError().build();
+        }
+    }
+    
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get(
+            @HeaderParam("Food-token") String token) {
+        try {
+            logCtrl.logOut(token);
+            String message = "Loged out";
+            return Response
+                    .ok(message)
+                    .build();
+        } catch (FoodMinorException ex) {
+            Logger.getLogger(AlimentResource.class.getName()).log(Level.SEVERE, null, ex);
             return Response.serverError().build();
         }
     }
 
-    @POST
-    @Path("/create")
-    @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public Response create(@FormDataParam("firstName") String fName,
-            @FormDataParam("lastName") String lName,
-            @FormDataParam("email") String email,
-            @FormDataParam("tel") String tel,
-            @FormDataParam("password") String pass,
-            @FormDataParam("adresse") String address) {
-        try {
-            String message = "user ";
-            message = message + (logCtrl.createUser(fName, lName, email, tel, pass, address) ? " created" :" not created");
-            return Response
-                    .ok(message)
-                    .build();
-        } catch (FoodMajorException | NoSuchAlgorithmException | UnsupportedEncodingException ex) {
-            Logger.getLogger(UserResource.class.getName()).log(Level.SEVERE, null, ex);
-            return Response
-                    .serverError()
-                    .build();
-        }
-    }
+    
 }
