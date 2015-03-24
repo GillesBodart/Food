@@ -3,7 +3,6 @@ package bodart.food.resources;
 import bodart.food.db.controller.LoginCtrl;
 import bodart.food.db.exceptions.FoodMajorException;
 import bodart.food.db.exceptions.FoodMinorException;
-import com.sun.jersey.multipart.FormDataParam;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
@@ -16,6 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.glassfish.jersey.media.multipart.FormDataParam;
 
 @Path("/user")
 public class UserResource {
@@ -63,7 +63,7 @@ public class UserResource {
     }
 
     @POST
-    @Path("/create")
+    @Path("/subscribe")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response create(@FormDataParam("firstName") String fName,
             @FormDataParam("lastName") String lName,

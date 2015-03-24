@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="FoodPU" transaction-type="RESOURCE_LOCAL">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>bodart.food.db.entity.Provider</class>
-        <class>bodart.food.db.entity.Aliment</class>
-        <class>bodart.food.db.entity.Category</class>
-        <class>bodart.food.db.entity.Recipe</class>
-        <class>bodart.food.db.entity.Recipelist</class>
-        <class>bodart.food.db.entity.Fooduser</class>
-        <class>bodart.food.db.entity.Sequences</class>
-        <class>bodart.food.db.entity.Orders</class>
-        <class>bodart.food.db.entity.Unit</class>
-        <class>bodart.food.db.entity.Ingredient</class>
-        <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://37.187.116.44:3306/Food"/>
-            <property name="javax.persistence.jdbc.user" value="FoodAPI"/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.password" value="FoodCostApi"/>
-        </properties>
-    </persistence-unit>
+  <persistence-unit name="FoodPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>bodart.food.application.db.entity.Ingredient</class>
+    <class>bodart.food.application.db.entity.Recipe</class>
+    <class>bodart.food.application.db.entity.Sequences</class>
+    <class>bodart.food.application.db.entity.Aliment</class>
+    <class>bodart.food.application.db.entity.Orders</class>
+    <class>bodart.food.application.db.entity.Provider</class>
+    <class>bodart.food.application.db.entity.Recipelist</class>
+    <class>bodart.food.application.db.entity.Fooduser</class>
+    <class>bodart.food.application.db.entity.Category</class>
+    <class>bodart.food.application.db.entity.Unit</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://37.187.116.44:3306/Food"/>
+      <property name="javax.persistence.jdbc.user" value="FoodAPI"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="FoodCostApi"/>
+    </properties>
+  </persistence-unit>
 </persistence>
